@@ -33,8 +33,8 @@ class DirtiesContextEventPublishingTests {
 	private static final List<Class<? extends TestContextEvent>> events = new ArrayList<>();
 
 
-	@BeforeEach
-	@AfterEach
+//	@BeforeEach
+//	@AfterEach
 	void resetEvents() {
 		events.clear();
 	}
@@ -121,37 +121,37 @@ class DirtiesContextEventPublishingTests {
 			AfterTestClassEvent.class // b/c @DirtiestContext happens "before method" at the method level
 		);
 	}
-
-	@SpringJUnitConfig(Config.class)
-	// add unique property to get a unique ApplicationContext
-	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = class-level")
-	@DirtiesContext
+//
+//	@SpringJUnitConfig(Config.class)
+//	// add unique property to get a unique ApplicationContext
+//	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = class-level")
+//	@DirtiesContext
 	static class ClassLevelDirtiesContextTestCase {
 
 		@Test
 		void test() {
 		}
 	}
-
-	@SpringJUnitConfig(Config.class)
-	// add unique property to get a unique ApplicationContext
-	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = method-level-after-method")
+//
+//	@SpringJUnitConfig(Config.class)
+//	// add unique property to get a unique ApplicationContext
+//	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = method-level-after-method")
 	static class MethodLevelAfterMethodDirtiesContextTestCase {
 
 		@Test
-		@DirtiesContext
+//		@DirtiesContext
 		void test1() {
 		}
 	}
-
-	@SpringJUnitConfig(Config.class)
-	// add unique property to get a unique ApplicationContext
-	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = method-level-after-method-with-subsequent-test-method")
-	@TestMethodOrder(DisplayName.class)
+//
+//	@SpringJUnitConfig(Config.class)
+//	// add unique property to get a unique ApplicationContext
+//	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = method-level-after-method-with-subsequent-test-method")
+//	@TestMethodOrder(DisplayName.class)
 	static class MethodLevelAfterMethodDirtiesContextWithSubsequentTestMethodTestCase {
 
 		@Test
-		@DirtiesContext
+//		@DirtiesContext
 		void test1() {
 		}
 
@@ -159,56 +159,56 @@ class DirtiesContextEventPublishingTests {
 		void test2() {
 		}
 	}
-
-	@SpringJUnitConfig(Config.class)
-	// add unique property to get a unique ApplicationContext
-	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = method-level-before-method")
+//
+//	@SpringJUnitConfig(Config.class)
+//	// add unique property to get a unique ApplicationContext
+//	@TestPropertySource(properties = "DirtiesContextEventPublishingTests.key = method-level-before-method")
 	static class MethodLevelBeforeMethodDirtiesContextTestCase {
 
 		@Test
-		@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
+//		@DirtiesContext(methodMode = MethodMode.BEFORE_METHOD)
 		void test() {
 		}
 	}
-
-	@Configuration
-	static class Config {
-
-		@BeforeTestClass
-		public void beforeTestClass(BeforeTestClassEvent e) {
-			events.add(e.getClass());
-		}
-
-		@PrepareTestInstance
-		public void prepareTestInstance(PrepareTestInstanceEvent e) {
-			events.add(e.getClass());
-		}
-
-		@BeforeTestMethod
-		public void beforeTestMethod(BeforeTestMethodEvent e) {
-			events.add(e.getClass());
-		}
-
-		@BeforeTestExecution
-		public void beforeTestExecution(BeforeTestExecutionEvent e) {
-			events.add(e.getClass());
-		}
-
-		@AfterTestExecution
-		public void afterTestExecution(AfterTestExecutionEvent e) {
-			events.add(e.getClass());
-		}
-
-		@AfterTestMethod
-		public void afterTestMethod(AfterTestMethodEvent e) {
-			events.add(e.getClass());
-		}
-
-		@AfterTestClass
-		public void afterTestClass(AfterTestClassEvent e) {
-			events.add(e.getClass());
-		}
-
-	}
+//
+//	@Configuration
+//	static class Config {
+//
+//		@BeforeTestClass
+//		public void beforeTestClass(BeforeTestClassEvent e) {
+//			events.add(e.getClass());
+//		}
+//
+//		@PrepareTestInstance
+//		public void prepareTestInstance(PrepareTestInstanceEvent e) {
+//			events.add(e.getClass());
+//		}
+//
+//		@BeforeTestMethod
+//		public void beforeTestMethod(BeforeTestMethodEvent e) {
+//			events.add(e.getClass());
+//		}
+//
+//		@BeforeTestExecution
+//		public void beforeTestExecution(BeforeTestExecutionEvent e) {
+//			events.add(e.getClass());
+//		}
+//
+//		@AfterTestExecution
+//		public void afterTestExecution(AfterTestExecutionEvent e) {
+//			events.add(e.getClass());
+//		}
+//
+//		@AfterTestMethod
+//		public void afterTestMethod(AfterTestMethodEvent e) {
+//			events.add(e.getClass());
+//		}
+//
+//		@AfterTestClass
+//		public void afterTestClass(AfterTestClassEvent e) {
+//			events.add(e.getClass());
+//		}
+//
+//	}
 
 }

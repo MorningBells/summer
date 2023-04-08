@@ -1,7 +1,14 @@
 package com.dianpoint.summer.test.event;
 
 
+import com.dianpoint.summer.beans.BeansException;
+import com.dianpoint.summer.beans.factory.config.BeanFactoryPostProcessor;
+import com.dianpoint.summer.beans.factory.config.BeanPostProcessor;
+import com.dianpoint.summer.beans.factory.config.ConfigurableListableBeanFactory;
+import com.dianpoint.summer.context.ApplicationContext;
 import com.dianpoint.summer.context.ApplicationEvent;
+import com.dianpoint.summer.context.ApplicationListener;
+import com.dianpoint.summer.core.env.Environment;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -116,5 +123,165 @@ public class TestContext {
 //        getApplicationContext().publishEvent(eventFactory.apply(this));
     }
 
+
+    public ApplicationContext getApplicationContext() {
+        ApplicationContext context = new ApplicationContext() {
+            @Override
+            public String getApplicationName() {
+                return null;
+            }
+
+            @Override
+            public long getStartupDate() {
+                return 0;
+            }
+
+            @Override
+            public ConfigurableListableBeanFactory getBeanFactory() {
+                return null;
+            }
+
+            @Override
+            public void setEnvironment(Environment environment) {
+
+            }
+
+            @Override
+            public Environment getEnvironment() {
+                return null;
+            }
+
+            @Override
+            public void addBeanFactoryPostProcessor(BeanFactoryPostProcessor beanFactoryPostProcessor) {
+
+            }
+
+            @Override
+            public void refresh() throws BeansException {
+
+            }
+
+            @Override
+            public void close() {
+
+            }
+
+            @Override
+            public boolean isActive() {
+                return false;
+            }
+
+            @Override
+            public boolean containsBeanDefinition(String beanName) {
+                return false;
+            }
+
+            @Override
+            public int getBeanDefinitionCount() {
+                return 0;
+            }
+
+            @Override
+            public String[] getBeanDefinitionNames() {
+                return new String[0];
+            }
+
+            @Override
+            public String[] getBeanNamesForType(Class<?> type) {
+                return new String[0];
+            }
+
+            @Override
+            public <T> Map<String, T> getBeansOfType(Class<T> type) throws BeansException {
+                return null;
+            }
+
+            @Override
+            public void addBeanPostProcessor(BeanPostProcessor beanPostProcessor) {
+
+            }
+
+            @Override
+            public int getBeanPostProcessorCount() {
+                return 0;
+            }
+
+            @Override
+            public void registerDependentBean(String beanName, String dependentBeanName) {
+
+            }
+
+            @Override
+            public String[] getDependentBeans(String beanName) {
+                return new String[0];
+            }
+
+            @Override
+            public String[] getDependenciesForBean(String beanName) {
+                return new String[0];
+            }
+
+            @Override
+            public Object getBean(String beanName) throws BeansException {
+                return null;
+            }
+
+            @Override
+            public boolean containsBean(String name) {
+                return false;
+            }
+
+            @Override
+            public void registerBean(String beanName, Object object) {
+
+            }
+
+            @Override
+            public boolean isSingleton(String name) {
+                return false;
+            }
+
+            @Override
+            public boolean isPrototype(String name) {
+                return false;
+            }
+
+            @Override
+            public Class<?> getType(String name) {
+                return null;
+            }
+
+            @Override
+            public void registerSingleton(String beanName, Object singletonObject) {
+
+            }
+
+            @Override
+            public Object getSingleton(String beanName) {
+                return null;
+            }
+
+            @Override
+            public boolean containsSingleton(String beanName) {
+                return false;
+            }
+
+            @Override
+            public String[] getSingletonNames() {
+                return new String[0];
+            }
+
+            @Override
+            public void publisher(ApplicationEvent event) {
+
+            }
+
+            @Override
+            public void addApplicationListener(ApplicationListener listener) {
+
+            }
+        };
+        return context;
+    }
 
 }
