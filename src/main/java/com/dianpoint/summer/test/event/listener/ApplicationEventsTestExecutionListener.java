@@ -37,36 +37,36 @@ public class ApplicationEventsTestExecutionListener extends AbstractTestExecutio
 	}
 
 	@Override
-	public void prepareTestInstance(TestContext testContext) throws Exception {
-		if (recordApplicationEvents(testContext)) {
-			registerListenerAndResolvableDependencyIfNecessary(testContext.getApplicationContext());
+	public void prepareTestInstance(final TestContext testContext) throws Exception {
+		if (this.recordApplicationEvents(testContext)) {
+			this.registerListenerAndResolvableDependencyIfNecessary(testContext.getApplicationContext());
 			ApplicationEventsHolder.registerApplicationEvents();
 		}
 	}
 
 	@Override
-	public void beforeTestMethod(TestContext testContext) throws Exception {
-		if (recordApplicationEvents(testContext)) {
+	public void beforeTestMethod(final TestContext testContext) throws Exception {
+		if (this.recordApplicationEvents(testContext)) {
 			ApplicationEventsHolder.registerApplicationEventsIfNecessary();
 		}
 	}
 
 	@Override
-	public void afterTestMethod(TestContext testContext) throws Exception {
-		if (recordApplicationEvents(testContext)) {
+	public void afterTestMethod(final TestContext testContext) throws Exception {
+		if (this.recordApplicationEvents(testContext)) {
 			ApplicationEventsHolder.unregisterApplicationEvents();
 		}
 	}
 
-	private boolean recordApplicationEvents(TestContext testContext) {
+	private boolean recordApplicationEvents(final TestContext testContext) {
 		// TODO: 2023/4/8 写一个判断是否存在注解的工具类
 //		return testContext.computeAttribute(RECORD_APPLICATION_EVENTS, name ->
 //				TestContextAnnotationUtils.hasAnnotation(testContext.getTestClass(), RecordApplicationEvents.class));
 		return false;
 	}
 
-	private void registerListenerAndResolvableDependencyIfNecessary(ApplicationContext applicationContext) {
-		AbstractApplicationContext aac = (AbstractApplicationContext) applicationContext;
+	private void registerListenerAndResolvableDependencyIfNecessary(final ApplicationContext applicationContext) {
+		final AbstractApplicationContext aac = (AbstractApplicationContext) applicationContext;
 		// Synchronize to avoid race condition in parallel test execution
 //		synchronized(applicationEventsMonitor) {
 //			boolean notAlreadyRegistered = aac.getApplicationListeners().stream()

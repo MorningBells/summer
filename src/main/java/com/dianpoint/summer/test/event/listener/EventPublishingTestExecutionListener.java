@@ -9,31 +9,31 @@ import com.dianpoint.summer.test.event.*;
 public class EventPublishingTestExecutionListener implements TestExecutionListener{
 
 
-    public void beforeTestClass(TestContext testContext) throws Exception {
+    public void beforeTestClass(final TestContext testContext) throws Exception {
         testContext.publishEvent(BeforeTestClassEvent::new);
     }
 
-    public void prepareTestInstance(TestContext testContext) throws Exception {
+    public void prepareTestInstance(final TestContext testContext) throws Exception {
         testContext.publishEvent(PrepareTestInstanceEvent::new);
     }
 
-    public void beforeTestMethod(TestContext testContext) throws Exception {
+    public void beforeTestMethod(final TestContext testContext) throws Exception {
         testContext.publishEvent(BeforeTestMethodEvent::new);
     }
 
-    public void beforeTestExecution(TestContext testContext) throws Exception {
+    public void beforeTestExecution(final TestContext testContext) throws Exception {
         testContext.publishEvent(BeforeTestExecutionEvent::new);
     }
 
-    public void afterTestExecution(TestContext testContext) throws Exception {
+    public void afterTestExecution(final TestContext testContext) throws Exception {
         testContext.publishEvent(AfterTestExecutionEvent::new);
     }
 
-    public void afterTestMethod(TestContext testContext) throws Exception {
+    public void afterTestMethod(final TestContext testContext) throws Exception {
         testContext.publishEvent(AfterTestMethodEvent::new);
     }
 
-    public void afterTestClass(TestContext testContext) throws Exception {
+    public void afterTestClass(final TestContext testContext) throws Exception {
         testContext.publishEvent(AfterTestClassEvent::new);
     }
 

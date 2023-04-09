@@ -27,8 +27,8 @@ import com.dianpoint.summer.test.event.DefaultApplicationEvents;
  */
 public class ApplicationEventsApplicationListener extends ApplicationListener {
 
-	public void onApplicationEvent(ApplicationEvent event) {
-		DefaultApplicationEvents applicationEvents =
+	public void onApplicationEvent(final ApplicationEvent event) {
+		final DefaultApplicationEvents applicationEvents =
 				ApplicationEventsHolder.getApplicationEvents();
 		if (applicationEvents != null) {
 			applicationEvents.addEvent(event);

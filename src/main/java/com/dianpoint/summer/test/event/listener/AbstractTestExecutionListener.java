@@ -25,31 +25,31 @@ import com.dianpoint.summer.test.event.TestContext;
 public abstract class AbstractTestExecutionListener implements TestExecutionListener {
 
 	@Override
-	public void beforeTestClass(TestContext testContext) throws Exception {
+	public void beforeTestClass(final TestContext testContext) throws Exception {
 	}
 
 	@Override
-	public void prepareTestInstance(TestContext testContext) throws Exception {
+	public void prepareTestInstance(final TestContext testContext) throws Exception {
 	}
 
 	@Override
-	public void beforeTestMethod(TestContext testContext) throws Exception {
+	public void beforeTestMethod(final TestContext testContext) throws Exception {
 	}
 
 	@Override
-	public void beforeTestExecution(TestContext testContext) throws Exception {
+	public void beforeTestExecution(final TestContext testContext) throws Exception {
 	}
 
 	@Override
-	public void afterTestExecution(TestContext testContext) throws Exception {
+	public void afterTestExecution(final TestContext testContext) throws Exception {
 	}
 
 	@Override
-	public void afterTestMethod(TestContext testContext) throws Exception {
+	public void afterTestMethod(final TestContext testContext) throws Exception {
 	}
 
 	@Override
-	public void afterTestClass(TestContext testContext) throws Exception {
+	public void afterTestClass(final TestContext testContext) throws Exception {
 	}
 
 }
