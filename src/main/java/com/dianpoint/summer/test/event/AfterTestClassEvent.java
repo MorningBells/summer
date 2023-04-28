@@ -6,12 +6,7 @@ package com.dianpoint.summer.test.event;
  */
 public class AfterTestClassEvent extends TestContextEvent{
 
-    /**
-     * Constructs a prototypical Event.
-     *
-     * @param source The object on which the Event initially occurred.
-     * @throws IllegalArgumentException if source is null.
-     */
+
     public AfterTestClassEvent(Object source) {
         super(source);
     }
